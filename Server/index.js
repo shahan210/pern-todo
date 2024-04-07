@@ -27,6 +27,7 @@ app.get("/todo/:id", async (req, res) => {
       id,
     ]);
     res.json(result.rows[0]);
+    res.redirect("/");
   } catch (error) {
     console.log(error);
   }
@@ -74,8 +75,8 @@ app.delete("/todo/:id", async (req, res) => {
 //delete all
 app.delete("/all", async (req, res) => {
   try {
-    const result = await db.query("DELETE FROM todo")
-    res.json("Deleted all")
+    const result = await db.query("DELETE FROM todo");
+    res.json("Deleted all");
   } catch (error) {
     console.log(error);
   }

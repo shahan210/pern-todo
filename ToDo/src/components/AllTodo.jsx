@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import api from "../API/api";
 import { MdDelete } from "react-icons/md";
 const AllTodo = () => {
-  const [todo, SetTodo] = useState({});
+  const [todo, SetTodo] = useState("");
   const [loading, setloading] = useState(true);
   const [id, setId] = useState("");
   useEffect(() => {
     getAlldata();
   }, [loading]);
+  console.log(todo);
   const getSpecific = async (e) => {
     e.preventDefault();
     api
@@ -31,8 +32,8 @@ const AllTodo = () => {
         .get("/todo")
         .then((result) => {
           setloading(false);
-          // console.log(result);
-          if (result.length > 0) {
+          console.log(result);
+          if (result.length > 0 && result.length < 100) {
             SetTodo(result);
           } else {
             console.log(result.rows);

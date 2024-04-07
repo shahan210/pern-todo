@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3000";
-// const baseUr1 = import.meta.env.BASE;
+// const baseUrl = "http://localhost:3000";
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 // console.log(baseUrl);
 const axiosInstance = axios.create({
   baseURL: baseUrl,
-  paramsSerializer: (params) => queryString.stringify({ params }),
 });
 axiosInstance.interceptors.response.use(
   (response) => {

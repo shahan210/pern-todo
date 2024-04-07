@@ -1,12 +1,17 @@
 import React from "react";
-import Home from "./components/Home";
 import AllTodo from "./components/AllTodo";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Create from "./components/Create";
 
 function App() {
   return (
     <>
-      <Home />
-      <AllTodo/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AllTodo />}></Route>
+          <Route path="/create" element={<Create />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

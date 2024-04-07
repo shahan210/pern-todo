@@ -27,7 +27,6 @@ app.get("/todo/:id", async (req, res) => {
       id,
     ]);
     res.json(result.rows[0]);
-    res.redirect("/");
   } catch (error) {
     console.log(error);
   }
